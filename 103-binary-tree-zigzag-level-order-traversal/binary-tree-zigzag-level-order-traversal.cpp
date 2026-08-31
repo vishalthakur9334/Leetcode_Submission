@@ -10,9 +10,8 @@ public:
         bool flag=0;   // 0-> from left to right  && 1-> from right to left 
         while(!q.empty()){
             int n=q.size();
-            vector<int>level(n);
+            vector<int>level;
             for(int i=0;i<n;i++){
-                int idx=flag?n-i-1:i;
                 TreeNode*curr=q.front();
                 q.pop();
 
@@ -22,8 +21,11 @@ public:
                 if(curr->right){
                     q.push(curr->right);
                 }
-                level[idx]=curr->val;
+                level.push_back(curr->val);
             }
+             if(flag){
+                    reverse(level.begin(),level.end());
+                }
             flag=!flag;
             result.push_back(level);
         }
