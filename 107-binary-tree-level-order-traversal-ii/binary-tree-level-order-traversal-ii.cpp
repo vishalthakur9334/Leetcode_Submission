@@ -22,9 +22,8 @@ public:
                 }
                 level.push_back(curr->val);
             }
-            result.push_back(level);
+            result.insert(result.begin(),level);
         }
-        reverse(result.begin(),result.end());
         return result;
     }
 };
