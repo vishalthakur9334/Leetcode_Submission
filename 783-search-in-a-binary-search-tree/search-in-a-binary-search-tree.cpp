@@ -1,3 +1,5 @@
+/*Just to practice on normal tree: preorder 
+
 class Solution {
 public:
     TreeNode*ans=NULL;
@@ -15,5 +17,28 @@ public:
     }
     TreeNode* searchBST(TreeNode* root, int val) {
        return  preorder(root,val);
+    }
+};
+*/
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+class Solution{
+    public:
+    TreeNode* searchBST(TreeNode* root, int val){
+        if(root==NULL){
+            return NULL;
+        }
+        // think as normal binary search : as an array :_)
+        while(root){
+            if(root->val==val){
+                return root;
+            }
+            else if(root->val>val){
+                root=root->left;
+            }
+            else{
+                root=root->right;
+            }
+        }
+        return NULL;
     }
 };
