@@ -1,22 +1,15 @@
 class Solution {
-public:  // two pointer approach : 
-     // height increase karo if widht kam raha hai to ,,, area maximum rakhna hai 
+public:
     int maxArea(vector<int>& height) {
-        int area=0;
-        int maxarea=0;
-
         int left=0;
         int right=height.size()-1;
-
+        int area=0;
         while(left<right){
-            int w=right-left;
-
             int h=min(height[left],height[right]);
+            int w=right-left;
+            int curr_area=h*w;
 
-            area=h*w;
-
-            maxarea=max(maxarea,area);
-
+            area=max(area,curr_area);
             if(height[left]<height[right]){
                 left++;
             }
@@ -24,6 +17,6 @@ public:  // two pointer approach :
                 right--;
             }
         }
-        return maxarea;
+        return area;
     }
 };
